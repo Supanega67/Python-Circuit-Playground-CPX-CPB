@@ -1,35 +1,37 @@
 const int analog_pin = A0;
+const int LED = 9; 
+
 int ADC_val = 0;
-int LED = 7;
-int digital_map_LED;
-void setup()
-{
+int brightness = 0;
+
+void setup() {
   Serial.begin(9600);
   pinMode(LED, OUTPUT);
-  pinMode(analog_pin, INPUT);
 }
 
-
-void loop()
-{
+void loop() {
   ADC_val = analogRead(analog_pin);
   Serial.println(ADC_val);
-  digital_map_LED = map(ADC_val, 0, 1023, 0, 225);
 
-  analogWrite(LED, ADC_val);
-  if (0>= ADC_val >=  225{
-    digitalWrite(LED, HIGH);
+  brightness = map(ADC_val, 0, 1023, 50, 255);
+
+  if (ADC_val <= 341) {
+    analogWrite(LED, brighness); 
     delay(1000);
-    digitalWrite(LED, HIGH);
+    analogWrite(LED, 0);          
     delay(1000);
-  } else if (225> ADC_val >=450);{
-    digitalWrite(LED, HIGH);
+  } else if (ADC_val <= 682) {
+    
+    analogWrite(LED, brightness);
     delay(500);
-    digitalWrite(LED, HIGH);
+    analogWrite(LED, 0);
     delay(500);
-  } else{
-    digitalWrite(LED, HIGH);
-    delay(100);
-    digitalWrite(LED, HIGH);
-    delay(100);
+  } else {
+    
+    analogWrite(LED, brightness);
+    delay(200);
+    analogWrite(LED, 0);
+    delay(200);
+  }
 }
+
