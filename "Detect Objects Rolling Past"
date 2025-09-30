@@ -8,8 +8,10 @@ bool objectPresent = false;
 const float objectThreshold = 15.0; // Adjust as needed
 
 void setup() {
-  while(true){
-
+  
+}
+void loop() {
+ 
   
   Serial.begin(9600);
   pinMode(trigPin, OUTPUT);
@@ -45,11 +47,5 @@ void setup() {
     } else {
       Serial.println("Waiting To Detect An Object");
     }
-  }
   delay(1000);
-  
-}
-
-void loop() {
-
 }
