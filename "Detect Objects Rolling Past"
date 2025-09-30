@@ -8,7 +8,9 @@ bool objectPresent = false;
 const float objectThreshold = 15.0; // Adjust as needed
 
 void setup() {
-  
+  Serial.begin(9600);
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
 }
 void loop() {
  
